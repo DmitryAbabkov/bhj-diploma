@@ -56,10 +56,11 @@ class User {
     })
   }
 
-  static logout(callback) {
+  static logout(data, callback) {
     createRequest({
       url: this.URL + '/logout',
       method: 'POST',
+      data,
       callback: (err, response) => {
         if(err == null && response.success) {
           this.unsetCurrent(response.user);
